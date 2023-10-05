@@ -1,9 +1,9 @@
 {
     "sourcedir": "test",
     "distinationdir": "backup",
-    "annualmark": "0110",
+    "annualmark": "3112",
     "monthlymark": "01",
-    "weeklymark": "1",
+    "weeklymark": "7",
     "dailystoragetime": "6",
     "weeklystoragetime": "30",
     "monthlstorageytime": "90",
