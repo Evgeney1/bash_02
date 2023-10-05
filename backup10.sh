@@ -68,9 +68,9 @@ fi
 if [ ! "$1" = "-c" ]; then
     SOURCEDIR="${1}"
     DISTINATIONDIR="${2}"
-    ANNUALMARK="0310" #default: 3112
-    MONTHLYMARK="03"  #default: 01
-    WEEKLYMARK="2"    #default: 7
+    ANNUALMARK="3112" #default: 3112
+    MONTHLYMARK="01"  #default: 01
+    WEEKLYMARK="7"    #default: 7
     DAILYSTORAGETIME="6"
     WEEKLYSTORAGETIME="28"
     MONTHLYSTORAGETIME="90"
@@ -153,7 +153,7 @@ cleanup_backup_by_count() {
     done
 }
 
-LOCKFILENAME="backup.lock$(date +"%Y-%m-%d-%H-%M-%S")"
+LOCKFILENAME="backup$(date +"%Y-%m-%d-%H-%M-%S").lock"
 (
     flock -x -w 0 200 || exit_abnormal
     logg "main"
@@ -167,5 +167,5 @@ LOCKFILENAME="backup.lock$(date +"%Y-%m-%d-%H-%M-%S")"
     else
         echo "backup error" >&2
     fi
-) 200>"${HOME}/${LOCKFILENAME}backup.lock"
-rm "${HOME}/${LOCKFILENAME}backup.lock"
+) 200>"${HOME}/${LOCKFILENAME}"
+rm "${HOME}/${LOCKFILENAME}"
